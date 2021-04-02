@@ -18,5 +18,10 @@ class ThreadsController extends Controller
         return view('threads.index', compact('threads'));
     }
 
+    public function show(Thread $thread)
+    {
+        return view('threads.show',compact('thread'));
+    }
+
 
 }
