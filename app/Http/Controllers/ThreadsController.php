@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ThreadsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +21,19 @@ class ThreadsController extends Controller
 
     public function show(Thread $thread)
     {
-        return view('threads.show',compact('thread'));
+        return view('threads.show', compact('thread'));
+    }
+
+    public function store()
+    {
+        $thread = Thread::create([
+            'user_id' => auth()->id(),
+            'title'   => request('title'),
+            'body'    => request('body')
+        ]);
+
+        return redirect($thread->path());
+
     }
 
 
