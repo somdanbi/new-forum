@@ -16,7 +16,7 @@ class CreateThreadsTest extends TestCase
     function an_authenticated_user_can_create_new_forum_threads()
     {
         // Given we have a signed user
-        $this->actingAs(make('App\User'));
+        $this->signIn();
 
         // when we hit the endpoint to createa new thread
         $thread = make('App\Thread');
