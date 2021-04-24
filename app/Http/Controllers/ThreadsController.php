@@ -30,7 +30,12 @@ class ThreadsController extends Controller
         return view('threads.create');
     }
 
-    public function show(Thread $thread)
+    /**
+     * @param $channelId
+     * @param Thread $thread
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show($channelId, Thread $thread)
     {
         return view('threads.show', compact('thread'));
     }
