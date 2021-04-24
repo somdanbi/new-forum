@@ -32,7 +32,7 @@ class CreateThreadsTest extends TestCase
 
         $this->post('/threads', $thread->toArray());
 
-        dd($thread->path());
+
 
         // then we visit the thread path and
         // We should see the new thread
