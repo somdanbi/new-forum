@@ -53,6 +53,12 @@ class CreateThreadsTest extends TestCase
         $this->publishThread([ 'body' => null ])
             ->assertSessionHasErrors('body');
     }
+    /** @test */
+    function a_thread_requires_a_valid_channel()
+    {
+        $this->publishThread([ 'channel_id' => null ])
+            ->assertSessionHasErrors('channel_id');
+    }
 
     public function publishThread($overrides = [])
     {
