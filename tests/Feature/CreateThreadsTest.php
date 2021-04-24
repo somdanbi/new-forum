@@ -28,15 +28,13 @@ class CreateThreadsTest extends TestCase
         $this->signIn();
 
         // when we hit the endpoint to createa new thread
-        $thread = create('App\Thread');
+        $thread = make('App\Thread');
 
-        $this->post('/threads', $thread->toArray());
-
-
+        $response = $this->post('/threads', $thread->toArray());
 
         // then we visit the thread path and
         // We should see the new thread
-        $this->get($thread->path())
+        $this->get($response->headers->get('Location'))
             ->assertSee($thread->title)
             ->assertSee($thread->body);
 
