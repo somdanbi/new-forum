@@ -17,20 +17,20 @@
                                 <label for="channel_id">Choose a Channel:</label>
                                 <select name="channel_id" id="channel_id" class="form-control" required>
                                     <option value="">Choose One...</option>
-                                    @foreach(App\Channel::all() as $channel)
-                                        <option value="{{$channel->id}}">{{$channel->name}}</option>
-                                    @endforeach
+                                    <option value="{{$channel->id}}" {{old('channel_id') == $channel->id ? 'selected': ''}}>
+                                        {{$channel->name}}
+                                    </option>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="title">Title:</label>
-                                <input name="title" value="{{old('title')}}" type="text" class="form-control" id="title">
+                                <input name="title" value="{{old('title')}}" type="text" class="form-control" id="title" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="body">Body:</label>
-                                <textarea name="body" id="body" class="form-control" rows="8">{{old('body')}}</textarea>
+                                <textarea name="body" id="body" class="form-control" rows="8" required>{{old('body')}}</textarea>
                             </div>
 
                             <div class="form-group">
