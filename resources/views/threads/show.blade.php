@@ -53,7 +53,8 @@
                             {{$thread->created_at->diffForHumans()}}
                             by: <a href="#">{{ $thread->creator->name }}</a>,
                             and currently has
-                            {{ $thread->replies_count }} comments.
+                            {{ $thread->replies_count }}
+                            {{ Str::plural('comment',$thread->replies_count) }}.
 
                         </p>
 
