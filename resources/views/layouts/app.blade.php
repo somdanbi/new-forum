@@ -76,6 +76,9 @@
                                     My Threads
                                 </a>
                                 @endif
+                                <a class="dropdown-item" href="/threads?popular=1">
+                                    Popular Threads
+                                </a>
 
                             </div>
                         </li>
