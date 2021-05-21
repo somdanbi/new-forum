@@ -22,7 +22,7 @@
     <style>
         body {padding-bottom: 100px;}
         .level {display: flex;align-items: center;}
-        .flexible {flex:1;}
+        .flex {flex:1;}
     </style>
 
 </head>
