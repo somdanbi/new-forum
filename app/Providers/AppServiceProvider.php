@@ -34,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
        |se regreso a este codigo pq, al momento de migrar/test tambien ocasionaba un error.
        */
         \View::composer('*', function ($view){
+            var_dump('querying');
             $view->with('channels', Channel::all());
         });
     }
