@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Channel;
+
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -34,8 +36,10 @@ class AppServiceProvider extends ServiceProvider
        |se regreso a este codigo pq, al momento de migrar/test tambien ocasionaba un error.
        */
         \View::composer('*', function ($view){
-            var_dump('querying');
-            $view->with('channels', Channel::all());
+            $channels = Cache::rememberforever('channels', function (){
+                return Channel::all();
+            });
+            $view->with('channels', $channels);
         });
     }
 }
