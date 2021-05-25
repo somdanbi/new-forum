@@ -38,11 +38,11 @@ class ThreadsController extends Controller
     }
 
     /**
-     * @param $channelId
+     * @param $channel
      * @param Thread $thread
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($channelId, Thread $thread)
+    public function show($channel, Thread $thread)
     {
 
         return view('threads.show', [
@@ -50,6 +50,18 @@ class ThreadsController extends Controller
             'replies' => $thread->replies()->paginate(5)
         ]);
 
+    }
+
+    /**
+     * @param $channel
+     * @param Thread $thread
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @throws \Exception
+     */
+    public function destroy($channel, Thread $thread)
+    {
+        $thread->delete();
+        return response([],204);
     }
 
     public function store()

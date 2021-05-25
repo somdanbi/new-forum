@@ -24,14 +24,14 @@ class ProfilesTest extends TestCase
     /** @test */
     function profiles_display_all_threads_created_by_the_associated_user()
     {
-
+        //1. Create a user
         $user = create('App\User');
+        //2. and a thread create by this user
         $thread = create('App\Thread', [ 'user_id' => $user->id ]);
-
+        //3. when we visit this user profile: I assert to see the title and body
         $this->get("/profiles/{$user->name}")
             ->assertSee($thread->title)
             ->assertSee($thread->body);
-
     }
 
 }
