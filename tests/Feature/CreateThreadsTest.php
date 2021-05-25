@@ -71,16 +71,12 @@ class CreateThreadsTest extends TestCase
     function a_thread_can_be_deleted()
     {
         $this->signIn();
-
         $thread = create('App\Thread');
-        $reply = create('App\Reply', [ 'thread_id' => $thread->id ]);
 
         $response = $this->json('DELETE', $thread->path());
-
         $response->assertStatus(204);
+        //an specific thread has been deleted
         $this->assertDatabaseMissing('threads', [ 'id' => $thread->id ]);
-        $this->assertDatabaseMissing('replies', [ 'id' => $reply->id ]);
-
     }
 
     public function publishThread($overrides = [])
