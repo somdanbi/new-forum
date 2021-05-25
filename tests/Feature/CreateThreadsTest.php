@@ -78,11 +78,12 @@ class CreateThreadsTest extends TestCase
 
         $this->delete($thread->path())->assertRedirect('/login');
     }
+
     /** @test */
-    function a_thread_can_be_deleted()
+    function authorized_users_can_delete_threads()
     {
         $this->signIn();
-        $thread = create('App\Thread');
+        $thread = create('App\Thread', [ 'user_id' => auth()->id() ]);
         //creating a reply that is associated to thread
         $reply = create('App\Reply', [ 'thread_id' => $thread->id ]);
 
