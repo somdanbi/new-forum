@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-                @foreach($threads as $thread)
+                @forelse($threads as $thread)
                     <div class="card">
                         <div class="card-header">
                             <div class="level">
@@ -22,7 +22,9 @@
                         </div>
 
                     </div>
-                @endforeach
+                @empty
+                    <p>Therere not relevant results at time</p>
+                @endforelse
             </div>
         </div>
     </div>
