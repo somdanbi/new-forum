@@ -13,13 +13,14 @@
                                 </a> Posted by:
                                 {{ $thread->title }}
                             </span>
-
+                            @can('update', $thread)
                             <form action="{{ $thread->path() }}" method="post">
                                 @csrf
                                 {{ method_field('DELETE') }}
                                 <button type="submit" class="btn btn-link">Delete</button>
 
                             </form>
+                            @endcan
 
                         </div>
                     </div>
