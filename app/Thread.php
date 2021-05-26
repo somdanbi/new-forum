@@ -37,10 +37,15 @@ class Thread extends Model
     {
         Activity::create([
             'user_id'      => auth()->id(),
-            'type'         => $event . '_' . strtolower((new \ReflectionClass($this))->getShortName()),
+            'type'         => $this->getActivityType($event),
             'subject_id'   => $this->id,
             'subject_type' => get_class($this),
         ]);
+    }
+
+    protected function getActivityType($event)
+    {
+        return $event . '_' . strtolower((new \ReflectionClass($this))->getShortName());
     }
 
 
