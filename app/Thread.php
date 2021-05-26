@@ -22,8 +22,18 @@ class Thread extends Model
         });
 
         //when you delete a thread, please delete all associated replies as well.
-        static::deleting(function($thread){
+        static::deleting(function ($thread) {
             $thread->replies()->delete();
+        });
+
+        //when a thread is created, save that activity
+        static::created(function ($thread) {
+            Activity::create([
+                'user_id'      => auth()->id(),
+                'type'         => 'created_thread',
+                'subject_id'   => $thread->id,
+                'subject_type' => 'App\Thread',
+            ]);
         });
 
     }
