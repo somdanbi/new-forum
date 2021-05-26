@@ -2,14 +2,13 @@
 
 namespace Tests\Unit;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ReplyTest extends TestCase
 {
 
-    use DatabaseMigrations, DatabaseTransactions;
+    use RefreshDatabase;
 
     /** @test */
     public function it_has_an_owner()
