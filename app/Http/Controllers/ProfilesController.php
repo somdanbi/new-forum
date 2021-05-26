@@ -6,6 +6,7 @@ use App\User;
 
 class ProfilesController extends Controller
 {
+
     public function show(User $user)
     {
         $activities = $user->activity()->with('subject')->get();
