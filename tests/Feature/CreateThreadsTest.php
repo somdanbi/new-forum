@@ -92,6 +92,11 @@ class CreateThreadsTest extends TestCase
         //an specific thread has been deleted
         $this->assertDatabaseMissing('threads', [ 'id' => $thread->id ]);
         $this->assertDatabaseMissing('replies', [ 'id' => $reply->id ]);
+
+        $this->assertDatabaseMissing('activities', [
+            'subject_id'   => $thread->id,
+            'subject_type' => get_class($thread)
+        ]);
     }
 
     public function publishThread($overrides = [])
