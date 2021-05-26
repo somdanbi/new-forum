@@ -5,6 +5,14 @@ namespace App;
 trait RecordsActivity
 {
 
+    protected static function bootRecordsActivity()
+    {
+        //when a thread is created, save that activity
+        static::created(function ($thread) {
+            $thread->recordActivity('created');
+        });
+    }
+
     public function recordActivity($event)
     {
         Activity::create([

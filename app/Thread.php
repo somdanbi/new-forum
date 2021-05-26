@@ -27,10 +27,6 @@ class Thread extends Model
             $thread->replies()->delete();
         });
 
-        //when a thread is created, save that activity
-        static::created(function ($thread) {
-            $thread->recordActivity('created');
-        });
 
     }
 
