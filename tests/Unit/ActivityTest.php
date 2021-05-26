@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Activity;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -38,6 +39,28 @@ class ActivityTest extends TestCase
 
     }
 
+    /** @test */
+    function it_fetches_a_feed_for_any_user()
+    {
+        //given we have a thread
+        $this->signIn();
 
+        create('App\Thread', [ 'user_id' => auth()->id() ]);
+        //and another thread from a week ago
+        create('App\Thread',[
+            'user_id' => auth()->id(),
+            'created_at' => Carbon::now()->subWeek(),
+
+        ]);
+
+        //when we fetch their feed
+        $feed = Activity::feed(auth()->user());
+
+        //Then it should be returned in the proper format
+        $this->assertTrue($feed->keys()->contains(
+            Carbon::now()->format('Y-m-d')
+        ));
+
+    }
 
 }
