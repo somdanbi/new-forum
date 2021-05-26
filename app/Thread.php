@@ -30,9 +30,9 @@ class Thread extends Model
         static::created(function ($thread) {
             Activity::create([
                 'user_id'      => auth()->id(),
-                'type'         => 'created_thread',
+                'type'         => 'created_' . strtolower((new \ReflectionClass($thread))->getShortName()),
                 'subject_id'   => $thread->id,
-                'subject_type' => 'App\Thread',
+                'subject_type' => get_class($thread),
             ]);
         });
 
