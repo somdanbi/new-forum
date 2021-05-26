@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
+
     use RecordsActivity;
 
     protected $guarded = [];
@@ -24,7 +25,7 @@ class Thread extends Model
 
         //when you delete a thread, please delete all associated replies as well.
         static::deleting(function ($thread) {
-            $thread->replies()->delete();
+            $thread->replies->each->delete();
         });
 
 
