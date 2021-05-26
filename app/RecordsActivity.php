@@ -7,6 +7,7 @@ trait RecordsActivity
 
     protected static function bootRecordsActivity()
     {
+        if ( auth()->guest() ) return;
         //when a thread is created, save that activity
         foreach (static::getActivitiesToRecord() as $event) {
             static::$event(function ($model) use ($event) {
