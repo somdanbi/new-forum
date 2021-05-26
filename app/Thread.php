@@ -28,14 +28,19 @@ class Thread extends Model
 
         //when a thread is created, save that activity
         static::created(function ($thread) {
-            Activity::create([
-                'user_id'      => auth()->id(),
-                'type'         => 'created_' . strtolower((new \ReflectionClass($thread))->getShortName()),
-                'subject_id'   => $thread->id,
-                'subject_type' => get_class($thread),
-            ]);
+            $thread->recordActivity('created');
         });
 
+    }
+
+    protected function recordActivity($event)
+    {
+        Activity::create([
+            'user_id'      => auth()->id(),
+            'type'         => $event . '_' . strtolower((new \ReflectionClass($this))->getShortName()),
+            'subject_id'   => $this->id,
+            'subject_type' => get_class($this),
+        ]);
     }
 
 
