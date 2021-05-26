@@ -8,14 +8,14 @@ trait RecordsActivity
     protected static function bootRecordsActivity()
     {
         //when a thread is created, save that activity
-        foreach (static::getRecordEvents() as $event) {
+        foreach (static::getActivitiesToRecord() as $event) {
             static::$event(function ($model) use ($event) {
                 $model->recordActivity($event);
             });
         }
     }
 
-    protected static function getRecordEvents()
+    protected static function getActivitiesToRecord()
     {
         return [ 'created' ];
     }
