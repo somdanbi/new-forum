@@ -1,6 +1,6 @@
 @component('profiles.activities.activity')
     @slot('header')
-        <a href="/">
+        <a href="{{ $activity->subject->favorited->path() }}">
             {{ $profileUser->name }} favorited a reply
         </a>
 
