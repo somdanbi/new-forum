@@ -7,3 +7,6 @@
     - Creating a Test for it.
     - Test for Authorized users (can delete a reply).
     - Create a Reply policy
+    - Finally. Delete a reply.
+    - Full Test ok.
+
