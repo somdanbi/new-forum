@@ -35,11 +35,10 @@ class AppServiceProvider extends ServiceProvider
        |--------------------------------------------------------------------------
        |se regreso a este codigo pq, al momento de migrar/test tambien ocasionaba un error.
        */
-        \View::composer('*', function ($view){
-            $channels = Cache::rememberforever('channels', function (){
-                return Channel::all();
-            });
-            $view->with('channels', $channels);
+        \View::composer('*', function ($view)
+        {
+            $view->with('channels', Channel::all());
+
         });
     }
 }
