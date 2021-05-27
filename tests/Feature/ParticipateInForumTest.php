@@ -57,5 +57,8 @@ class ParticipateInForumTest extends TestCase
         // and I want to deleted, but it'll redirect to login page
         $this->delete("/replies/{$reply->id}")
             ->assertRedirect('login');
+        $this->signIn()
+            ->delete("/replies/{$reply->id}")
+            ->assertStatus(403);
     }
 }

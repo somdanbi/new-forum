@@ -30,8 +30,15 @@ class RepliesController extends Controller
         ]);
 
         return back()
-            ->with('flash','Your reply has been left.');
+            ->with('flash', 'Your reply has been left.');
     }
 
-
+    public function destroy(Reply $reply)
+    {
+        if ( $reply->user_id != auth()->id() ) {
+            return response([], 403);
+        }
+        $reply->delete();
+        return back();
+    }
 }
