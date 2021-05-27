@@ -5,3 +5,5 @@
 #### commit 31.
     - A unauthorized user can not delete a reply.
     - Creating a Test for it.
+    - Test for Authorized users (can delete a reply).
+    - 
