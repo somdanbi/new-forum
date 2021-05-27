@@ -45,4 +45,17 @@ class ParticipateInForumTest extends TestCase
         $this->post($thread->path() . '/replies', $reply->toArray())
             ->assertSessionHasErrors('body');
     }
+
+    /** @test */
+    function unauthorized_user_cannot_delete_replies()
+    {
+        $this->withExceptionHandling();
+
+        // I have a reply
+        $reply = create('App\Reply');
+
+        // and I want to deleted, but it'll redirect to login page
+        $this->delete("/replies/{$reply->id}")
+            ->assertRedirect('login');
+    }
 }
