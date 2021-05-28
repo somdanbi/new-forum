@@ -28,11 +28,7 @@ export default{
 
     methods: {
         toggle(){
-            if(this.isFavorited){
-                this.destroy();
-            } else {
-                this.create();
-            }
+            return this.isFavorited ? this.destroy() : this.create();
         },
 
         create(){
