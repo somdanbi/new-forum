@@ -72,4 +72,22 @@ class ParticipateInForumTest extends TestCase
 
         $this->assertDatabaseMissing('replies', [ 'id' => $reply->id ]);
     }
+
+    /** @test */
+    function authorized_users_can_update_replies()
+    {
+        //  1. Sign in
+        $this->signIn();
+
+        // 2. a create reply
+        $reply = create('App\Reply', [ 'user_id' => auth()->id() ]);
+
+        $updateReply = 'You been change, fool';
+
+        // 3. erquest to change the body
+        $this->patch("/replies/{$reply->id}", [ 'body' => $updateReply ]);
+
+        // 4. change body column in the db
+        $this->assertDatabaseHas('replies', [ 'id' => $reply->id, 'body' => $updateReply ]);
+    }
 }

@@ -13,3 +13,5 @@
 #### commit 32.
     - Vue: Editing a textarea
     - Vue: Error: 405 Method Not Allowed
+    - setting an endpoint
+    - Test: update a reply.
