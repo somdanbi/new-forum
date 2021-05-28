@@ -21,5 +21,6 @@
 
 #### commit 34... now you can:
     - CREATING VUE FAVORITES FORM.
-    * creating static favoritecounter numer 10. 
+    * creating static favoritecounter number 10. 
+    * creating dynamic favoritecounter. 
 
