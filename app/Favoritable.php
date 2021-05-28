@@ -4,6 +4,7 @@ namespace App;
 
 trait Favoritable
 {
+
     // Using all these in reply.
 
     public function favorite()
@@ -12,8 +13,7 @@ trait Favoritable
         // only in that case should apply a new one.(create a favorite event)
         $attributes = [ 'user_id' => auth()->id() ];
 
-        if ( ! $this->favorites()->where($attributes)->exists() )
-        {
+        if ( ! $this->favorites()->where($attributes)->exists() ) {
             return $this->favorites()->create($attributes);
         }
     }
@@ -27,6 +27,15 @@ trait Favoritable
     {
         return ! ! $this->favorites->where('user_id', auth()->id())->count();
     }
+
+    public function unfavorite()
+    {
+        $attributes = [ 'user_id' => auth()->id() ];
+
+        $this->favorites()->where($attributes)->delete();
+
+    }
+
 
     public function getFavoritesCountAttribute()
     {

@@ -38,6 +38,8 @@ Route::patch('/replies/{reply}','RepliesController@update');
 #--------------- FAVORITES -------------------
 Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
 
+#----- this reply is not my favorite anymore
+Route::delete('/replies/{reply}/favorites', 'FavoritesController@destroy');
 #--------------  User Profile  ---------------
 Route::get('/profiles/{user}','ProfilesController@show')->name('profile');
 
