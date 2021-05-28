@@ -1,4 +1,5 @@
-<div id="reply-{{ $reply->id }}" class="card">
+<reply inline-template>
+  <div id="reply-{{ $reply->id }}" class="card">
     <div class="card-header">
         <div class="level">
             <h5 class="flex">
@@ -26,7 +27,8 @@
     </div>
 
     @can('update',$reply)
-        <div class="card-footer">
+        <div class="card-footer level">
+            <button class="btn btn-info btn-sm mr-1">Edit</button>
             <form action="/replies/{{$reply->id}}" method="post">
                 @csrf
                 {{ method_field('DELETE') }}
@@ -36,4 +38,4 @@
         </div>
     @endcan
 </div>
-
+</reply>
