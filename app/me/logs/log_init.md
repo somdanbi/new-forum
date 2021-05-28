@@ -19,3 +19,7 @@
     - now you can update a reply, but it needs to refresh the page to see it. (fixed).
     - now you can delete a reply
 
+#### commit 34... now you can:
+    - CREATING VUE FAVORITES FORM.
+    * creating static favoritecounter numer 10. 
+
