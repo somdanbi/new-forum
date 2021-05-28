@@ -11,4 +11,5 @@
     - Full Test ok.
 
 #### commit 32.
-    - Vue: Editing a textarea  
+    - Vue: Editing a textarea
+    - Vue: Error: 405 Method Not Allowed
