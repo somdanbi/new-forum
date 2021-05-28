@@ -10,3 +10,5 @@
     - Finally. Delete a reply.
     - Full Test ok.
 
+#### commit 32.
+    - Vue: Editing a textarea  

@@ -4,7 +4,8 @@ export default {
 
     data(){
         return {
-            editing:false
+            editing:false,
+            body: this.attributes.body,
         };
     }
 }

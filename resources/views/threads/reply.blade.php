@@ -1,4 +1,4 @@
-<reply attributes="{{ $reply }}" inline-template>
+<reply :attributes="{{ $reply }}" inline-template>
   <div id="reply-{{ $reply->id }}" class="card">
     <div class="card-header">
         <div class="level">
@@ -24,7 +24,13 @@
     </div>
     <div class="card-body">
         <div v-if="editing">
-            <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+            <div class="form-group">
+                <textarea class="form-control" v-model="body"></textarea>
+
+                <br>
+                <button class="btn btn-outline-primary btn-sm" @click="update">Update</button>
+                <button class="btn btn-outline-danger btn-sm" @click="editing = false">Cancel</button>
+            </div>
         </div>
 
         <div v-else>
