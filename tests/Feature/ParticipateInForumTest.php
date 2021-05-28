@@ -90,4 +90,19 @@ class ParticipateInForumTest extends TestCase
         // 4. change body column in the db
         $this->assertDatabaseHas('replies', [ 'id' => $reply->id, 'body' => $updateReply ]);
     }
+
+    /** @test */
+    function unauthorized_user_cannot_update_replies()
+    {
+        $this->withExceptionHandling();
+
+        $reply = create('App\Reply');
+
+        $this->patch("/replies/{$reply->id}")
+            ->assertRedirect('login');
+
+        $this->signIn()
+            ->patch("/replies/{$reply->id}")
+            ->assertStatus(403);
+    }
 }

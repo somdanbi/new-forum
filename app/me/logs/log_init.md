@@ -15,3 +15,6 @@
     - Vue: Error: 405 Method Not Allowed
     - setting an endpoint
     - Test: update a reply.
+    - Test: unauthorized users cannot update replies
+    -
+
