@@ -17,4 +17,5 @@
     - Test: update a reply.
     - Test: unauthorized users cannot update replies
     - now you can update a reply, but it needs to refresh the page to see it. (fixed).
+    - now you can delete a reply
 
