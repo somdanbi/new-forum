@@ -41,6 +41,23 @@ if (token) {
 //-------------------------------------------------------
 //=== Added by me
 
+// Authorize opens
+window.Vue = require('vue');
+//
+Vue.prototype.authorize = function (handler){
+    let user = window.App.user;
+    return user ? handler(user) : false;
+};
+
+// Authorize closes
+// Vue.prototype.signedIn = window.App.signedIn;
+//
+// window.Vue.prototype.authorize = function (handler) {
+//     let user = window.App.user;
+//
+//     return user ? handler(user) : false;
+// };
+
 //creating a vue instance
 window.events = new Vue();
 
