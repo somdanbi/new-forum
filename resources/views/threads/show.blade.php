@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <thread-view inline-template>
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -30,9 +31,10 @@
                     </div>
                 </div>
 
-                @foreach($replies as $reply)
-                    @include('threads.reply')
-                @endforeach
+                <replies :data="{{$thread->replies}}"></replies>
+{{--                @foreach($replies as $reply)--}}
+{{--                    @include('threads.reply')--}}
+{{--                @endforeach--}}
 
                 {{ $replies->links() }}
 
@@ -50,10 +52,11 @@
 
                     </form>
                 @else
-                    <p class="text-center">Please
-                        <a href="{{ route('login') }}">Sign in</a>
-                        to participate in this discussion
-                    </p>
+                    <p class="text-cent
+                    replie :data={{$thread->replies}}ser">Please
+{{--                        <a href="{{ route('login') }}">Sign in</a>--}}
+{{--                        to participate in this discussion--}}
+{{--                    </p>--}}
                 @endif
 
             </div>
@@ -84,4 +87,5 @@
         </div>
 
     </div>
+    </thread-view>
 @endsection
