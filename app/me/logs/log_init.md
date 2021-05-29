@@ -28,5 +28,6 @@
     - page.test/manu
     - fixing (after you unfavorited a reply it blows up.)
     - fixing (after favorited then unfavorited a reply then delete a reply it blows up.)
-    - 
+    - fixing (favorited icon only visible if you are log in)
+
 

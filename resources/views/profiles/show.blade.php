@@ -7,11 +7,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h2>{{ $profileUser->name }}</h2>
-                    </div>
+                    </div
 
                 </div>
 
-                @foreach($activities as $date => $activity)
+                @forelse($activities as $date => $activity)
                     <h3>{{ $date }}</h3>
                     @foreach($activity as $record)
                         @if(view()->exists("profiles.activities.{$record->type}"))
@@ -19,9 +19,12 @@
                         @endif
                     @endforeach
 
-                @endforeach
 
-{{--                {{$threads->links()}}--}}
+
+                @empty
+
+                    <p>There is not activity for this user yet.</p>
+                @endforelse
 
 
             </div>
