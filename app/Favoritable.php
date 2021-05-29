@@ -5,6 +5,17 @@ namespace App;
 trait Favoritable
 {
 
+    /**
+     * Boot the trait.
+     */
+    protected static function bootFavoritable()
+    {
+        // when you are deleting the associated model...
+        static::deleting(function ($model) {
+            // ...I also want to delete the favorites
+            $model->favorites->each->delete();
+        });
+    }
     // Using all these in reply.
 
     public function favorite()
