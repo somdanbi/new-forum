@@ -24,4 +24,8 @@
     * creating static favoritecounter number 10. 
     * creating dynamic favoritecounter.
     * using fontAwesome
+#### commit 35
+    - page.test/manu
+    - fixing (after you unfavorited a reply it blows up.)
+    -
 
