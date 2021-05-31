@@ -1,10 +1,6 @@
 <template>
     <div>
-<!--        @if(auth()->check())-->
-
-<!--        <form method="post" action="{{ $thread->path(). '/replies' }}">-->
-
-            <div class="form-group">
+        <div v-if="signedIn">
                 <textarea name="body" id="body" rows="5"
                           placeholder ="Something to say?" class="form-control"
                           v-model="body"
@@ -17,14 +13,7 @@
                     class="btn btn-primary"
                     @click="addReply">Post</button>
 
-<!--        </form>-->
-<!--        @else-->
-<!--        <p class="text-cent-->
-<!--            replie :data={{$thread->replies}}ser">Please-->
-<!--            <a href="{{ route('login') }}">Sign in</a>-->
-<!--            to participate in this discussion-->
-<!--        </p>-->
-<!--        @endif-->
+
     </div>
 </template>
 
@@ -36,6 +25,12 @@ export default {
             body: '',
             endpoint:'/threads/et/1/replies'
         };
+    },
+
+    computed:{
+        signedIn(){
+            return window.App.signedIn;
+        }
     },
 
     methods: {
