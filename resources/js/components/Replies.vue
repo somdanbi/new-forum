@@ -5,7 +5,7 @@
 
         </div>
 
-        <new-reply></new-reply>
+        <new-reply @created="add"></new-reply>
 
     </div>
 
@@ -23,6 +23,10 @@ export default{
         }
     },
     methods: {
+        add(reply){
+            this.items.push(reply)
+        },
+
         remove(index){
             this.items.splice(index, 1);
             this.$emit('removed');
