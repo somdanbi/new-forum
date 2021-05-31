@@ -31,6 +31,8 @@
     - fixing (favorited icon only visible if you are log in)
 
 #### commit 36
-    - CREATING REPLIES COMPONENT
+    - CREATING REPLIES COMPONENT (for listing)
+
+#### commit 37
     - 
 
