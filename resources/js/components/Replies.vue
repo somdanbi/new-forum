@@ -4,6 +4,7 @@
             <reply :data="reply" @deleted="remove(index)"></reply>
 
         </div>
+        <paginator></paginator>
         <new-reply :endpoint="endpoint" @created="add"></new-reply>
     </div>
 
@@ -21,7 +22,7 @@ export default{
     data(){
         return {
             dataSet: false,
-            items: [],
+
             endpoint:location.pathname + '/replies',
         }
     },

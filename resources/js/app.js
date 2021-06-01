@@ -21,6 +21,18 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('flash', require('./components/Flash.vue').default);
+
+/*-------------------------------------
+ * PAGINATION
+ * ------------------------------------
+ */
+Vue.component('paginator', require('./components/Paginator.vue').default);
+
+
+/*-------------------------------------
+ * REPLY COMPONENT
+ * ------------------------------------
+ */
 Vue.component('thread-view', require('./components/pages/Thread').default);
 
 /**
