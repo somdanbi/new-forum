@@ -31,7 +31,7 @@
 
 <script>
 export default{
-    props: ['endpoint'],
+
     data(){
         return {
             body: '',
