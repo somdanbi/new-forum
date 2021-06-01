@@ -1,0 +1,35 @@
+//a_user_can_request_all_replies_for_a_given_thread
+
+array:12 [
+  "current_page" => 1
+  "data" => array:1 [
+    0 => array:10 [
+      "id" => 1
+      "thread_id" => 2
+      "user_id" => 3
+      "body" => "Delectus iste dolore a molestiae alias a laudantium. Quasi debitis consectetur iure vero. Fugiat est sed omnis dignissimos dolore dolorem quo. Eos et officiis sint necessitatibus beatae."
+      "created_at" => "2021-06-01 04:58:52"
+      "updated_at" => "2021-06-01 04:58:52"
+      "favoritesCount" => 0
+      "isFavorited" => false
+      "owner" => array:5 [
+        "id" => 3
+        "name" => "Prof. Abelardo Hamill I"
+        "email_verified_at" => "2021-06-01 04:58:52"
+        "created_at" => "2021-06-01 04:58:52"
+        "updated_at" => "2021-06-01 04:58:52"
+      ]
+      "favorites" => []
+    ]
+  ]
+  "first_page_url" => "http://localhost/threads/optio/2/replies?page=1"
+  "from" => 1
+  "last_page" => 2
+  "last_page_url" => "http://localhost/threads/optio/2/replies?page=2"
+  "next_page_url" => "http://localhost/threads/optio/2/replies?page=2"
+  "path" => "http://localhost/threads/optio/2/replies"
+  "per_page" => 1
+  "prev_page_url" => null
+  "to" => 1
+  "total" => 2
+]
