@@ -38,7 +38,7 @@ export default{
         },
 
         page() {
-            this.broadcast();
+            this.broadcast().updateUrl();
         }
 
     },
@@ -51,8 +51,12 @@ export default{
 
     methods: {
         broadcast() {
-            this.$emit('updated', this.page);
+            return this.$emit('changed', this.page);
         },
+
+        updateUrl() {
+            history.pushState(null, null, '?page=' + this.page);
+        }
     }
 }
 </script>
