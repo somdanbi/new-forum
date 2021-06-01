@@ -17,6 +17,7 @@ export default{
     components: {Reply, NewReply},
     data(){
         return {
+            dataSet: false,
             items: [],
             endpoint:location.pathname + '/replies',
         }
@@ -28,15 +29,16 @@ export default{
 
     methods: {
         fetch(){
-            axios.get(this.url)
+            axios.get(this.url())
                 .then(this.refresh);
         },
         url(){
             return `${location.pathname}/replies`;
         },
 
-        refresh(response){
-
+        refresh({data}){
+            this.dataSet = data;
+            this.items = data.data;
         },
 
         add(reply){
