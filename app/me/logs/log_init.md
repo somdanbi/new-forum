@@ -37,4 +37,5 @@
     - 
 
 #### commit 39
-    - Fixing Scroll page, (threads/show) go to the top after refresh the page
+    - Fixing Scroll page, (threads/show) go to the top after refresh the page.
+    - Working on unanswered threads.
