@@ -39,3 +39,4 @@
 #### commit 39
     - Fixing Scroll page, (threads/show) go to the top after refresh the page.
     - Working on unanswered threads.
+    - issue: the tutor create refresh the migrations, then create 100 threads, finally create 30 replies for a latest thread, it works for him but not for me. the counter column is not been updated after I run the query in tinker. 
