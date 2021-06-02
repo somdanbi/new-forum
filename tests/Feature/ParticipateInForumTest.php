@@ -31,6 +31,7 @@ class ParticipateInForumTest extends TestCase
         $this->post($thread->path() . '/replies', $reply->toArray());
 
         $this->assertDatabaseHas('replies', [ 'body' => $reply->body ]);
+        $this->assertEquals(1, $thread->fresh()->replies_count);
     }
 
     /** @test */
